@@ -1,3 +1,5 @@
+# Najma-ia
+
 # Assistant Vocal Python sur Linux
 
 ## Description
@@ -23,10 +25,6 @@ Un assistant vocal construit en utilisant Python, destiné à être utilisé sur
 
 ## Installation et Utilisation
 
-```bash
-pip install -r requirements.txt
-python main.py
-
 ### Prérequis
 
 - Python 3.x
@@ -37,5 +35,6 @@ python main.py
 Clonez ce dépôt et naviguez dans le dossier du projet.
 
 ```bash
-git clone [Your Repository Link]
-cd [Your Repository Name]
+git clone git@github.com:Yahia-Abdchafee-ADAM/Najma_ia.git
+cd Najma_ia
+```
