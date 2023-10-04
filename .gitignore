@@ -1,3 +1,6 @@
+env/SpeechApikey.json 
+*/SpeechApikey.json
+*SpeechApikey.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
