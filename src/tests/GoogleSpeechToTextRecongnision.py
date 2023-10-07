@@ -6,8 +6,19 @@ import io;
 from google.cloud import speech
 from google.oauth2 import service_account
 
+import speech_recognition as sr
+
 credential_path = "/home/najma/Documents/adam.ai.student/najma-ia/env/SpeechApikey.json"
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+
+# obtain audio from the microphone
+
+r = sr.Recognizer()
+def get_audio():
+    with sr.Microphone() as source:
+        print("Say something!")
+        audio = r.listen(source)
+    return (audio)
 
 def speech_to_text(config: speech.RecognitionConfig, audio: speech.RecognitionAudio) -> speech.RecognizeResponse:
     client = speech.SpeechClient()
@@ -26,16 +37,19 @@ def print_response(result: speech.SpeechRecognitionResult):
 
 
 if __name__ == '__main__':
-    filename = "/home/najma/Documents/adam.ai.student/najma-ia/data/input/speech_brooklyn_bridge.flac"
-    with io.open(filename, "rb") as audio_file:
-        content = audio_file.read()
+    # filename = "/home/najma/Documents/adam.ai.student/najma-ia/data/input/speech_brooklyn_bridge.flac"
+    # with io.open(filename, "rb") as audio_file:
+    #     content = audio_file.read()
     
-    audio = speech.RecognitionAudio(
-        content=content,
-        # uri="gs://cloud-samples-data/speech/brooklyn_bridge.flac",
-    )
-    config = speech.RecognitionConfig(
-        language_code="en",
-    )
-    response = speech_to_text(config, audio)
-    print_response(response)
+    # audio = speech.RecognitionAudio(
+    #     content=content,
+    #     # uri="gs://cloud-samples-data/speech/brooklyn_bridge.flac",
+    # )
+    # config = speech.RecognitionConfig(
+    #     language_code="en",
+    # )
+    # response = speech_to_text(config, audio)
+    # print_response(response)
+
+    audio = get_audio()
+    
