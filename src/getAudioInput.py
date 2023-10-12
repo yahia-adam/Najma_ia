@@ -4,10 +4,11 @@ r = sr.Recognizer()
 
 def get_audio_input():
     with sr.Microphone() as source:
-        print("Hi i'am najma-ai, how can i help you ?")
+        print("Say something ...")
+        print(">>>", end="")
         audio=r.listen(source)
     try:
         requiest = r.recognize_google(audio)
-        return requiest
     except:
-        return None
+        requiest = ""
+    return requiest
