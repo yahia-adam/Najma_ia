@@ -1,50 +1,41 @@
-
 from kivy.app import App
-from kivy.lang import Builder
-from kivy.config import Config
 from kivy.core.window import Window
+from kivy.uix.boxlayout import BoxLayout
+from kivy.graphics import Ellipse, Line, Color
+from kivy.uix.image import Image
+from kivy.uix.button import Button
 from kivy.animation import Animation
+from kivy.config import Config
 
 # screen config
-
+Config.set('graphics', 'fullscreen', 'false')
 Config.set('graphics', 'position', 'custom')
-Config.set('graphics','top', 0)
-Config.set('graphics','left', 0)
-Config.set("graphics", "resizable", 0)
-Config.set("graphics", "fullscreen", 0)
-
-Window.size = (140, 140)
+Config.set('graphics', 'left', 1780)
+Config.set('graphics', 'top', 940)
+Config.write()
+Window.size = (110, 110)
 Window.clearcolor = (1, 1, 1, 1)
 
-class Najma(App):
+class Najmaai(BoxLayout):
+    def __init__(self, **kwargs):
+        super(Najmaai, self).__init__(**kwargs)
+        self.orientation = 'vertical'
+        self.button = Button(text="")
+        self.add_widget(self.button)
+        self.button.bind(on_press=self.button_pressed)
+        with self.canvas:
+            self.eclipse = Ellipse(pos=(5, 5), size=(100, 100), source='../data/input/N.png')
+            Color(0, 1, 1, 1)
+            self.circle1 = Line(width=2, circle=(5 + 100 / 2, 5 + 100 / 2, 70 / 2))
+            Color(1, 0, 1, 1)
+            self.circle2 = Line(width=2, circle=(5 + 100 / 2, 5 + 100 / 2, 90 / 2))
+
+    def button_pressed(self, instance):
+        print("Button pressed!")
+
+class MyApp(App):
     def build(self):
-        return Builder.load_file("/home/najma/Documents/adam.ai.student/najma-ia/src/kivyfile/main.kv")
+        return Najmaai()
 
-    def myanimation(self, widget, *args):
-        anim = Animation(opacity=0, duration=0.5)
-        anim += Animation(opacity=1, duration=3)
-        anim.start(widget)
-
-Najma().run()
-
-# import file
-# from getAudioInput import get_audio_input
-# from getWrittenInput import get_written_input
-# from askOpenAi import ask_openai
-# from execCommandLine import exec_command_line
-# if __name__ == "__main__":    
-    # while True:
-    #     print("1 for speech and 2 for text ...")
-    #     print(">>>",end="")
-    #     text_or_audio = input()
-
-    #     if (text_or_audio == "1"):
-    #         message = get_audio_input()
-    #         answer = ask_openai(message)
-    #         print(f"Answer: >>>{answer}<<<")
-    #         exec_command_line(answer)
-    #     elif (text_or_audio == "2"):
-    #         message = get_written_input()
-    #         answer = ask_openai(message)
-    #         print(f"Answer: >>>{answer}<<<")
-    #         exec_command_line(answer)
+if __name__ == '__main__':
+    MyApp().run()
