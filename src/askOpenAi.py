@@ -33,7 +33,7 @@ def ask_openai(message):
         n=1,
         stop=None,
         temperature=0.8,
-    )  
+    )
     answer = response.choices[0].text.strip()
     return answer
 

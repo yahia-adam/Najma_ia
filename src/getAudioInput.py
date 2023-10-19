@@ -8,7 +8,10 @@ def get_audio_input():
         print(">>>", end="")
         audio=r.listen(source)
     try:
-        requiest = r.recognize_google(audio)
+        requiest = r.recognize_google(audio, language="fr-FR")
     except:
         requiest = ""
     return requiest
+
+if __name__ == '__main__':
+    print(get_audio_input())
