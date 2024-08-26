@@ -38,7 +38,6 @@ def ask_openai(message):
     return answer
 
 def main():
-
     while True:
         message = input("Message: ")
         answer = ask_openai(message)
