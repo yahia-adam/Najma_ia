@@ -1,7 +1,8 @@
 # Najma-ia
 
 # Assistant Vocal Python sur Linux
-![image](https://github.com/user-attachments/assets/c0fbd9bb-2acf-4b5c-b15a-ea892c268105)
+
+![image](https://github.com/user-attachments/assets/670619d5-f4b9-4bab-b196-b043ed72110d)
 
 ## Description
 
